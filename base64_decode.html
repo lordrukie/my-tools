@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Decode</title>
+</head>
+<body>
+    <h1>Base64 Decode</h1>
+    <p>Input value below to decoded from base64.</p>
+    <input type="text" id="input_text"/>
+    <button py-click="base64_decode">Convert</button>
+    <div id="output"></div>
+    <py-script>
+        from base64 import b64decode
+        from pyscript import document
+        def base64_decode(event):
+            input_text = document.querySelector("#input_text")
+            output_div = document.querySelector("#output")
+            output_div.innerText = b64decode(input_text.value.encode()).decode()
+    </py-script>
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+</body>
+</html>
